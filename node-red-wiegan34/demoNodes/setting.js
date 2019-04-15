@@ -1,6 +1,5 @@
 const wiegand = require('wiegand');
-const testFolder = '/sys/class/gpio';
-const fs = require('fs');
+const Gpio = require('onoff').Gpio;
 const w = wiegand();
 
 var idCard = "345678";
@@ -19,6 +18,8 @@ module.exports = function(RED) {
         this.timer = config.timer;
         var context = this.context();
         var node = this;
+        const b0 = new Gpio(node.host, 'in', 'both');
+        const b1 = new Gpio(node.timer, 'in', 'both');
 
         	//start read card
         	w.begin({ d0: node.host, d1: node.timer});
