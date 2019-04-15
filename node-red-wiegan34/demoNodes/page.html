@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Wiegand',{
+        category: 'Demo',
+        color: '#ffaaaa',
+        defaults: {
+            name: {value:""},
+	    host: {value:"", required:true, validate:RED.validators.number([17-18])},
+	    timer: {value:"", required:true, validate:RED.validators.regex([17-18])}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "wgd.png",
+        label: function() {
+            return this.name||"Wiegand";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Wiegand">
+	<p>Use only two GPIO, it mean 17 and 18, 20 and 21 ect.</p>
+    
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-tag"></i> D0</span></label>
+        <input type="text" id="node-input-host" placeholder="D0">
+    </div>
+    <div class="form-row">
+        <label for="node-input-timer"><i class="icon-tag"></i> D1</label>
+        <input type="text" id="node-input-timer" placeholder="D1">
+    </div>
+
+
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+ 
+<script type="text/x-red" data-help-name="Wiegand">
+    <p>Use Wiegand connect to RPI 3B+.<br/>
+    </p>
+</script>
