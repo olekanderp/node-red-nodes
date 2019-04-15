@@ -16,3 +16,6 @@ Make sure you export your GPIO pins according to the epoll docs:
 echo 17 > /sys/class/gpio/export
 echo in > /sys/class/gpio/gpio17/direction
 echo both > /sys/class/gpio/gpio17/edge
+
+
+try
